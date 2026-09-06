@@ -107,45 +107,49 @@ describe("assignment 2 spec", () => {
     expect(slideCount, "week 3 deck has too few slides to be real teaching content").toBeGreaterThanOrEqual(6);
   });
 
-  it("gives the first two teaching blocks (Weeks 1-8) authored content, not placeholder skeletons", () => {
-    for (let week = 1; week <= 8; week++) {
+  it("gives all twelve teaching weeks authored content, not placeholder skeletons", () => {
+    for (let week = 1; week <= 12; week++) {
       const padded = week.toString().padStart(2, "0");
       const raw = readFileSync(resolve(`src/content/lectures/week-${padded}.md`), "utf8");
       expect(raw, `week ${week} still reads as an unauthored skeleton`).not.toMatch(/SKELETON/);
     }
   });
 
-  it("gives Solo Queue Autopsy a real, internally-consistent marking breakdown", () => {
-    const autopsy = api.nodes.find((node) => node.id === "assessments/solo-queue-autopsy");
-    expect(autopsy, "solo-queue-autopsy assessment is missing").toBeDefined();
+  const assessmentWeights: [string, number][] = [
+    ["assessments/solo-queue-autopsy", 20],
+    ["assessments/invisible-jungler", 20],
+    ["assessments/draft-to-game-plan", 25],
+    ["assessments/match-autopsy", 35],
+  ];
 
-    const marking = autopsy?.meta?.marking as { mode?: string; criteria?: { weight: number }[] } | undefined;
-    expect(marking?.mode, "solo-queue-autopsy has no real marking breakdown").toBe("weighted");
+  it.each(assessmentWeights)("gives %s a real, internally-consistent marking breakdown at weight %d", (id, weight) => {
+    const assessment = api.nodes.find((node) => node.id === id);
+    expect(assessment, `${id} is missing`).toBeDefined();
 
-    const total = (marking?.criteria ?? []).reduce((sum, criterion) => sum + criterion.weight, 0);
-    expect(total).toBe(100);
-
-    expect(autopsy?.meta?.weight, "solo-queue-autopsy's overall course weight changed").toBe(20);
-  });
-
-  it("gives The Invisible Jungler a real, internally-consistent marking breakdown", () => {
-    const jungler = api.nodes.find((node) => node.id === "assessments/invisible-jungler");
-    expect(jungler, "invisible-jungler assessment is missing").toBeDefined();
-
-    const marking = jungler?.meta?.marking as { mode?: string; criteria?: { weight: number }[] } | undefined;
-    expect(marking?.mode, "invisible-jungler has no real marking breakdown").toBe("weighted");
+    const marking = assessment?.meta?.marking as { mode?: string; criteria?: { weight: number }[] } | undefined;
+    expect(marking?.mode, `${id} has no real marking breakdown`).toBe("weighted");
 
     const total = (marking?.criteria ?? []).reduce((sum, criterion) => sum + criterion.weight, 0);
-    expect(total).toBe(100);
+    expect(total, `${id}'s criteria weights do not sum to 100`).toBe(100);
 
-    expect(jungler?.meta?.weight, "invisible-jungler's overall course weight changed").toBe(20);
+    expect(assessment?.meta?.weight, `${id}'s overall course weight changed`).toBe(weight);
   });
 
-  it("links The Invisible Jungler to the weeks its rubric claims to draw on", () => {
-    const jungler = api.nodes.find((node) => node.id === "assessments/invisible-jungler");
-    const related = (jungler?.related ?? []) as string[];
-    for (const week of ["lectures/week-03", "lectures/week-05", "lectures/week-06", "lectures/week-07"]) {
-      expect(related, `invisible-jungler does not link ${week}`).toContain(week);
+  it("only links each assessment to weeks taught before it is due", () => {
+    const assessments = api.nodes.filter((node) => node.type === "assessments");
+    for (const assessment of assessments) {
+      const due = new Date(assessment.meta?.due as string);
+      const related = (assessment.related ?? []) as string[];
+      for (const slug of related) {
+        if (!slug.startsWith("lectures/")) continue;
+        const lecture = lectures.find((node) => node.id === slug);
+        expect(lecture, `${assessment.id} links ${slug}, which does not exist`).toBeDefined();
+        const taughtDate = new Date(lecture?.meta?.date as string);
+        expect(
+          taughtDate.getTime() < due.getTime(),
+          `${assessment.id} is due before ${slug} is taught`,
+        ).toBe(true);
+      }
     }
   });
 });
