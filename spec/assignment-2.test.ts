@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 interface ApiNode {
   id: string;
   type: string;
+  related?: string[];
   meta?: Record<string, unknown>;
 }
 
@@ -106,9 +107,10 @@ describe("assignment 2 spec", () => {
     expect(slideCount, "week 3 deck has too few slides to be real teaching content").toBeGreaterThanOrEqual(6);
   });
 
-  it("gives the first teaching block (Weeks 1-4) authored content, not placeholder skeletons", () => {
-    for (let week = 1; week <= 4; week++) {
-      const raw = readFileSync(resolve(`src/content/lectures/week-0${week}.md`), "utf8");
+  it("gives the first two teaching blocks (Weeks 1-8) authored content, not placeholder skeletons", () => {
+    for (let week = 1; week <= 8; week++) {
+      const padded = week.toString().padStart(2, "0");
+      const raw = readFileSync(resolve(`src/content/lectures/week-${padded}.md`), "utf8");
       expect(raw, `week ${week} still reads as an unauthored skeleton`).not.toMatch(/SKELETON/);
     }
   });
@@ -124,5 +126,26 @@ describe("assignment 2 spec", () => {
     expect(total).toBe(100);
 
     expect(autopsy?.meta?.weight, "solo-queue-autopsy's overall course weight changed").toBe(20);
+  });
+
+  it("gives The Invisible Jungler a real, internally-consistent marking breakdown", () => {
+    const jungler = api.nodes.find((node) => node.id === "assessments/invisible-jungler");
+    expect(jungler, "invisible-jungler assessment is missing").toBeDefined();
+
+    const marking = jungler?.meta?.marking as { mode?: string; criteria?: { weight: number }[] } | undefined;
+    expect(marking?.mode, "invisible-jungler has no real marking breakdown").toBe("weighted");
+
+    const total = (marking?.criteria ?? []).reduce((sum, criterion) => sum + criterion.weight, 0);
+    expect(total).toBe(100);
+
+    expect(jungler?.meta?.weight, "invisible-jungler's overall course weight changed").toBe(20);
+  });
+
+  it("links The Invisible Jungler to the weeks its rubric claims to draw on", () => {
+    const jungler = api.nodes.find((node) => node.id === "assessments/invisible-jungler");
+    const related = (jungler?.related ?? []) as string[];
+    for (const week of ["lectures/week-03", "lectures/week-05", "lectures/week-06", "lectures/week-07"]) {
+      expect(related, `invisible-jungler does not link ${week}`).toContain(week);
+    }
   });
 });
