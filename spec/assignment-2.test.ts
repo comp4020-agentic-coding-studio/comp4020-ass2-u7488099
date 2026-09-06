@@ -94,4 +94,35 @@ describe("assignment 2 spec", () => {
     });
     expect(builtDecks.length, "linked deck did not build to dist/decks/<name>/").toBeGreaterThan(0);
   });
+
+  it("builds the Week 3 deck as a real multi-slide deck, not a placeholder shell", () => {
+    const week3 = lectureByWeek.get(3);
+    const slides = week3?.meta?.slides as string | undefined;
+    expect(slides, "week 3 has no linked deck").toBeDefined();
+
+    const deckName = (slides as string).replace(/^\/decks\//, "").replace(/\/$/, "");
+    const html = readFileSync(resolve("dist/decks", deckName, "index.html"), "utf8");
+    const slideCount = (html.match(/<section/g) ?? []).length;
+    expect(slideCount, "week 3 deck has too few slides to be real teaching content").toBeGreaterThanOrEqual(6);
+  });
+
+  it("gives the first teaching block (Weeks 1-4) authored content, not placeholder skeletons", () => {
+    for (let week = 1; week <= 4; week++) {
+      const raw = readFileSync(resolve(`src/content/lectures/week-0${week}.md`), "utf8");
+      expect(raw, `week ${week} still reads as an unauthored skeleton`).not.toMatch(/SKELETON/);
+    }
+  });
+
+  it("gives Solo Queue Autopsy a real, internally-consistent marking breakdown", () => {
+    const autopsy = api.nodes.find((node) => node.id === "assessments/solo-queue-autopsy");
+    expect(autopsy, "solo-queue-autopsy assessment is missing").toBeDefined();
+
+    const marking = autopsy?.meta?.marking as { mode?: string; criteria?: { weight: number }[] } | undefined;
+    expect(marking?.mode, "solo-queue-autopsy has no real marking breakdown").toBe("weighted");
+
+    const total = (marking?.criteria ?? []).reduce((sum, criterion) => sum + criterion.weight, 0);
+    expect(total).toBe(100);
+
+    expect(autopsy?.meta?.weight, "solo-queue-autopsy's overall course weight changed").toBe(20);
+  });
 });
