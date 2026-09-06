@@ -1,30 +1,30 @@
 ---
-title: Opening lecture
+title: What Wins a Game?
 description:
-  The first lecture — what the course is, why it is shaped this way, and what
-  happens in week 1
+  The course's foundational question — what "winning" actually consists of,
+  moment to moment, given that the Nexus is only ever destroyed once. Sets up
+  the recurring principle every later week returns to.
 week: 1
 date: 2027-02-22
 teachers:
   - marisol-quaye
-slides: /decks/week-01/
 related:
   - sessions/01-getting-started
+question: >
+  If destroying the Nexus is the only objective, why do players spend most of
+  the game doing something else?
+buildsOn: []
 ---
 
-<!-- STARTER_CONTENT: replace this lecture, then remove this comment. -->
+<!-- SKELETON: guiding question and summary only. Full lecture content,
+     activities and evidence follow in a later pass. -->
 
-Replace this page. A lecture entry says what was covered and links to the pages
-that own the detail, so the lecture stays short and nothing is explained twice.
+## Guiding question
 
-The `related:` ref above is a graph edge: it renders on this page and on the
-session's, so declare a connection once, on whichever side is convenient.
+> If destroying the Nexus is the only objective, why do players spend most of
+> the game doing something else?
 
-The page renders its `slides:` link automatically. Decks are markdown too,
-under `src/decks/`; the path is part of the lecture's API metadata.
-
-## Outline
-
-- what the course is for
-- how the weeks are shaped
-- what to do before the first session
+The course's recurring principle, introduced here: every advantage must
+eventually be converted. Everything the rest of the semester studies — gold,
+kills, vision, tempo, objectives — matters only because of what it lets a team
+do next.

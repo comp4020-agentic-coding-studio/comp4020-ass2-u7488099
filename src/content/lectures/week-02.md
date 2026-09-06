@@ -1,23 +1,28 @@
 ---
-title: Second lecture
+title: Gold, Experience and Power
 description:
-  Week 2 — the first substantive material, and the run-up to the first review
+  Gold and experience translate into item and level advantages, but an
+  advantage is only worth what it lets a champion do that they couldn't
+  before. Builds on Week 1's account of what winning actually requires.
 week: 2
 date: 2027-03-01
 teachers:
   - idris-fenn
 related:
   - sessions/02-first-review
-  - assessments/assignment-1
+question: >
+  What is an advantage actually worth?
+buildsOn:
+  - week-01
 ---
 
-<!-- STARTER_CONTENT: replace this lecture, then remove this comment. -->
+<!-- SKELETON: guiding question and summary only. Full lecture content,
+     activities and evidence follow in a later pass. -->
 
-Replace this page. It exists so the lectures listing sorts by week and the
-related block has more than one edge to draw.
+## Guiding question
 
-## Outline
+> What is an advantage actually worth?
 
-- the first substantive material, and where it shows up in practice
-- what the first review is looking for
-- reading before next week
+A gold or experience lead is not a score — it is a set of options a champion
+now has that they didn't before. Builds on Week 1's principle: an advantage
+counts only once it is converted into a decision it enables.

@@ -10,15 +10,12 @@ teachers:
 spec:
   - work from week 1 is running and can be shown in under two minutes
   - you can name the one decision you are least sure about
-related:
-  - assessments/assignment-1
 ---
 
 <!-- STARTER_CONTENT: replace this session, then remove this comment. -->
 
-Replace this page. It is here so the sessions listing sorts by week, the detail
-route renders a second spec, and the related block has an edge into the
-assessment collection.
+Replace this page. It is here so the sessions listing sorts by week and the
+detail route renders a second spec.
 
 ## Before the session
 
