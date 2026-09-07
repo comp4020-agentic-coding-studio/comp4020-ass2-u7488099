@@ -69,15 +69,7 @@ analysis that the match goes on to contradict is not a failure of this
 assessment — reality diverging from a defensible prediction is exactly
 what Part 2 asks you to explain.
 
-## Marking
-
-|Criterion|Weight|
-|---|---|
-|Composition analysis|20%|
-|Win condition identification|20%|
-|Specificity of game plan|15%|
-|Conflict identification|15%|
-|Post-match comparison and explanation of gaps|30%|
+## What the criteria reward
 
 **Composition analysis** rewards identifying what each draft's tools are
 actually good at, over a generic strength list.

@@ -10,6 +10,7 @@ teachers:
   - sweetpig12
 related:
   - sessions/01-getting-started
+slides: /decks/week-01/
 question: >
   If destroying the Nexus is the only objective, why do players spend most of
   the game doing something else?

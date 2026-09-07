@@ -70,15 +70,7 @@ For **each checkpoint**, answer all five of the following, in order:
    map-state exercise: a decision made despite acknowledged uncertainty,
    not a decision that depends on the guess being correct.
 
-## Marking
-
-|Criterion|Weight|
-|---|---|
-|Evidence and citation|25%|
-|Quality of inference|20%|
-|Handling uncertainty|20%|
-|Use of course concepts (Weeks 3, 5, 6, 7)|20%|
-|Decision quality given available information|15%|
+## What the criteria reward
 
 **Evidence and citation** rewards pointing at specific, checkable details in
 the checkpoint over a general impression of where a jungler "probably" is.

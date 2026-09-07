@@ -71,15 +71,7 @@ explanation that correctly uses fewer concepts, tied tightly to evidence,
 outperforms one that mentions everything from the semester without
 connecting the mentions into a chain.
 
-## Marking
-
-|Criterion|Weight|
-|---|---|
-|Identification of pivotal transitions|20%|
-|Causal reasoning per transition|30%|
-|Evidence from the match|20%|
-|Breadth across course concepts|15%|
-|Coherence of the overall argument|15%|
+## What the criteria reward
 
 **Identification of pivotal transitions** rewards choosing moments that
 actually changed the game's trajectory, over an exhaustive or arbitrary

@@ -70,15 +70,7 @@ Close with one sentence per decision distinguishing outcome from decision
 quality: was this a good decision that didn't pay off, or a bad decision
 that happened not to matter yet?
 
-## Marking
-
-|Criterion|Weight|
-|---|---|
-|Decision identification|25%|
-|Evidence from game state|20%|
-|Use of course concepts|25%|
-|Causal reasoning|20%|
-|Outcome vs decision quality|10%|
+## What the criteria reward
 
 **Decision identification** rewards choosing decisions that actually shaped
 the game over the three biggest mechanical errors — a clean, well-timed
