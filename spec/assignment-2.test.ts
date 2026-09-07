@@ -152,4 +152,23 @@ describe("assignment 2 spec", () => {
       }
     }
   });
+
+  // The API-node count above only proves twelve week entries exist somewhere
+  // in the content graph. A prospective student never sees that JSON — they
+  // see the rendered /lectures/ index — so this checks the built HTML itself
+  // links to every week, which is the thing that actually makes the
+  // twelve-week semester discoverable.
+  it("links every one of the twelve teaching weeks from the built lectures index page", () => {
+    const html = readFileSync(resolve("dist/lectures/index.html"), "utf8");
+    for (let week = 1; week <= 12; week++) {
+      const slug = `week-${String(week).padStart(2, "0")}`;
+      const linked = new RegExp(`href="[^"]*/lectures/${slug}/"`).test(html);
+      expect(linked, `built lectures index has no link to ${slug}`).toBe(true);
+    }
+  });
+
+  it("links the full lecture schedule from the homepage", () => {
+    const html = readFileSync(resolve("dist/index.html"), "utf8");
+    expect(/href="[^"]*\/lectures\/"/.test(html), "homepage has no link to /lectures/").toBe(true);
+  });
 });

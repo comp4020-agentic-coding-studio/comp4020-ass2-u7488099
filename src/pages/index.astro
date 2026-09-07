@@ -2,42 +2,68 @@
 import Card from "astro-theme-university/components/Card.astro";
 import CardGrid from "astro-theme-university/components/CardGrid.astro";
 import ContentLayout from "astro-theme-university/layouts/ContentLayout.astro";
-import heroImage from "../assets/images/hero-home.avif";
+import heroImage from "../assets/images/hero-home.svg";
 import { courseMeta } from "../course-config";
 import { sessionLabels, siteConfig } from "../site-config";
-
-// STARTER_CONTENT: replace the hero artwork and its alt text below, then
-// remove this comment.
 ---
 
 <ContentLayout
   title={`${courseMeta.code}: ${courseMeta.title}`}
   description={courseMeta.description}
   heroImage={heroImage}
-  heroImageAlt="A lecture theatre reduced to flat gold and black shapes, rows of seats sweeping past the frame, in a two-ink risograph print"
+  heroImageAlt="An abstract map schematic in flat gold and black shapes on warm cream — diagonal lanes, diamond objective markers and scattered ward dots, in a two-ink risograph print"
   {...siteConfig}
 >
   <ul class="course-tags" aria-label="Course tags">
     {courseMeta.tags.map((tag) => <li>{tag}</li>)}
   </ul>
 
-  <!-- STARTER_CONTENT: replace the authored page below, then remove this comment. -->
   <h2>What you will do</h2>
   <p>
-    Say what a student spends their time on — the making, reading, arguing or
-    measuring that fills the weeks. Name the artefact they walk out with.
+    You will be given match footage, drafts and game states — sometimes your
+    own, sometimes a stranger's — and asked to explain them: not what
+    happened, but why the winning side won. Across the semester you build a
+    vocabulary for that explanation — resources, wave states, information,
+    tempo, objectives, composition, teamfighting — and each assessment asks
+    you to use it on evidence you can point to, not on how the game felt to
+    watch. The artefact you walk out with is the ability to trace a causal
+    chain from an opening draft to a Nexus falling, in a single match you've
+    never seen before.
   </p>
 
   <h2>Who it is for</h2>
   <p>
-    Say who this is aimed at and what they need to already know. Be specific
-    enough that someone can rule themselves in or out without emailing you.
+    Anyone who already knows the basic rules of League of Legends — lanes,
+    champions, items, objectives, what ends the game — and wants to argue
+    about it with more precision than "he's just built different." This is
+    not a climbing guide, a champion guide or a patch-summary service, and it
+    won't teach you mechanics. <strong>Rank is not evidence</strong> here: no
+    minimum rank is required to enrol, and no rank, in an assessment, counts
+    as an argument. What is marked is whether a claim survives being asked
+    "how do you know?"
+  </p>
+
+  <h2>Why this isn't a pile of guides</h2>
+  <p>
+    A guide tells you what to do in a recurring situation. This course asks a
+    different question — given a game state, what actually explains why one
+    side's decisions converted into a win and the other's didn't — and that
+    question doesn't have a lookup-table answer. Champion examples show up
+    throughout the semester, but only ever to illustrate a principle; they
+    never replace it, and the same reasoning is meant to survive the next
+    patch, the next meta, and a champion you've never played.
   </p>
 
   <h2>Where to go next</h2>
   <CardGrid columns={2}>
+    <Card title="Lectures" href="/lectures/">
+      <p>The complete twelve-week teaching schedule, Week 1 to Week 12.</p>
+    </Card>
     <Card title={sessionLabels.plural} href="/sessions/">
-      <p>The weekly schedule and what happens in each teaching session.</p>
+      <p>
+        Two supplementary in-person workshops early in the semester, alongside
+        the weekly lectures.
+      </p>
     </Card>
     <Card title="Assessment" href="/assessments/">
       <p>What is marked, what it is worth, and when it is due.</p>

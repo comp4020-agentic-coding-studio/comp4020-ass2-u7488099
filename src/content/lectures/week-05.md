@@ -8,7 +8,7 @@ description:
 week: 5
 date: 2027-03-22
 teachers:
-  - marisol-quaye
+  - sweetpig12
 question: >
   How do you make decisions about a player you cannot see?
 buildsOn:

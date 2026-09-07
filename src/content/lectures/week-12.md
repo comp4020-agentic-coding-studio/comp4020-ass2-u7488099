@@ -8,7 +8,7 @@ description:
 week: 12
 date: 2027-05-10
 teachers:
-  - idris-fenn
+  - cantgankme
 question: >
   Why did they win?
 buildsOn:

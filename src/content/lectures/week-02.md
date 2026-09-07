@@ -7,7 +7,7 @@ description:
 week: 2
 date: 2027-03-01
 teachers:
-  - idris-fenn
+  - aussiebeaver15
 related:
   - sessions/02-first-review
 question: >

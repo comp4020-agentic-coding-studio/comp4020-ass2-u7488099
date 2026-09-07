@@ -7,7 +7,7 @@ description:
 week: 1
 date: 2027-02-22
 teachers:
-  - marisol-quaye
+  - sweetpig12
 related:
   - sessions/01-getting-started
 question: >

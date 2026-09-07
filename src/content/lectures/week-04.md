@@ -8,7 +8,7 @@ description:
 week: 4
 date: 2027-03-15
 teachers:
-  - idris-fenn
+  - aussiebeaver15
 question: >
   What are you really trading when you fight another champion?
 buildsOn:

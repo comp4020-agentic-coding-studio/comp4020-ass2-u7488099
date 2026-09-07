@@ -8,7 +8,7 @@ description:
 week: 10
 date: 2027-04-26
 teachers:
-  - idris-fenn
+  - cantgankme
 question: >
   Ten champions enter a fight. What is each one actually trying to
   accomplish?

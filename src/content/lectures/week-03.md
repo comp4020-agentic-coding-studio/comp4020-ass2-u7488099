@@ -8,7 +8,7 @@ description:
 week: 3
 date: 2027-03-08
 teachers:
-  - marisol-quaye
+  - sweetpig12
 slides: /decks/week-03/
 question: >
   Why do six minions determine what ten champions are allowed to do?

@@ -8,7 +8,7 @@ description:
 week: 6
 date: 2027-03-29
 teachers:
-  - idris-fenn
+  - aussiebeaver15
 question: >
   Why can recalling be more valuable than getting another kill?
 buildsOn:

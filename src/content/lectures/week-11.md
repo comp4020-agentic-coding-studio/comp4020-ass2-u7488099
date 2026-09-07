@@ -8,7 +8,7 @@ description:
 week: 11
 date: 2027-05-03
 teachers:
-  - marisol-quaye
+  - sweetpig12
 question: >
   If the rules barely change, why does the correct way to play change
   constantly?

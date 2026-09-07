@@ -8,7 +8,7 @@ description:
 week: 9
 date: 2027-04-19
 teachers:
-  - marisol-quaye
+  - sweetpig12
 question: >
   What does your team need to happen in order to win?
 buildsOn:

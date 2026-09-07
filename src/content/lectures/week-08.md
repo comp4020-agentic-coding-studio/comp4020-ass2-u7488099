@@ -8,7 +8,7 @@ description:
 week: 8
 date: 2027-04-12
 teachers:
-  - idris-fenn
+  - cantgankme
 question: >
   When is taking Dragon the wrong decision?
 buildsOn:

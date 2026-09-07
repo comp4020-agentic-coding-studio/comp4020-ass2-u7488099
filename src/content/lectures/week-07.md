@@ -8,7 +8,7 @@ description:
 week: 7
 date: 2027-04-05
 teachers:
-  - marisol-quaye
+  - sweetpig12
 question: >
   What can you know when most of the map is invisible?
 buildsOn:
